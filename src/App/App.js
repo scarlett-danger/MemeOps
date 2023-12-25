@@ -1,5 +1,3 @@
-// App.jsx
-
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 import axios from 'axios';

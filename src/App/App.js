@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import html2canvas from 'html2canvas';
@@ -15,10 +15,6 @@ const App = () => {
   const [textColor, setTextColor] = useState('#000000');
   const [loadedImage, setLoadedImage] = useState(null);
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    applyTransformation(document.getElementById('loadedImage'));
-  }, [rotation, scale, mirror])
 
   const handleImageChange = (event) => {
     setImageUrl(event.target.value);
@@ -39,8 +35,7 @@ const App = () => {
     setMirror((prevMirror) => !prevMirror);
   };
 
-
-const applyTransformation = (imageElement) => {
+const applyTransformation = useCallback((imageElement) => {
   if (imageElement) {
     let transformValue = `rotate(${rotation}deg)`;
     transformValue += mirror ? ' scale(-1, 1)' : ''; // Mirror effect using scale
@@ -67,7 +62,7 @@ const applyTransformation = (imageElement) => {
       imageElement.classList.remove('scaled');
     }
   }
-};
+},[rotation, scale, mirror]);
 
   const handleTopTextChange = (event) => {
     setTopText(event.target.value);
@@ -119,6 +114,10 @@ const applyTransformation = (imageElement) => {
       });
     }
   };
+
+  useEffect(() => {
+    applyTransformation(document.getElementById('loadedImage'));
+  }, [rotation, scale, mirror, applyTransformation])
 
   return (
     <>

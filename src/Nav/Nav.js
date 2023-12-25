@@ -1,11 +1,8 @@
 // Routes.jsx
 
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { Container, Navbar, Nav } from 'react-bootstrap';
-import App from '../App/App';
-import About from '../About/About';
-import Contact from '../Contact/Contact';
 import logo from "../assets/memeops_logo.png";
 
 const Navigation = () => {

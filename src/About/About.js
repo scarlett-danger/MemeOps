@@ -47,9 +47,11 @@ const About = () => {
 
       <Row className="mt-4">
         <Col>
-          <h3>Join the Conversation</h3>
+          <h3>Continue Learning</h3>
           <p>
-            MemeOps encourages open dialogue and critical thinking. Whether you are a meme enthusiast, a technology buff, or someone intrigued by the complexities of influence, we invite you to join the conversation and explore the multifaceted world of MemeOps.
+            If you're interested in diving deeper into the world of information warfare,
+            we recommend checking out the website <a href="https://www.goviralgame.com/books/go-viral/" target="_blank" rel="noopener noreferrer">"Go Viral: A Guide to Meme Warfare"</a>.
+            This engaging resource offers valuable insights into the strategic use of misinformation and disinformation on social media platforms to cause malign influence.
           </p>
         </Col>
       </Row>

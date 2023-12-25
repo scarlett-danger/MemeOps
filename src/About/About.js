@@ -2,9 +2,12 @@
 
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import Navigation from '../Nav/Nav'
 
 const About = () => {
   return (
+    <>
+    <Navigation/>
     <Container>
       <Row className="mt-4">
         <Col>
@@ -28,8 +31,8 @@ const About = () => {
         <Col>
           <h3>Political Action in the Intelligence Community</h3>
           <p>
-            Our platform recognizes the impact of political action within the intelligence community. MemeOps aims to provide a space for creative expression while respecting ethical boundaries and promoting responsible use of technology.
-          </p>
+            Our platform recognizes the impact of political action conducted by intelligence communities around the world. The IC uses Memes as a part of information warfare to win the attention over a population to influence their actions during an election. 
+            </p>
         </Col>
       </Row>
 
@@ -51,6 +54,7 @@ const About = () => {
         </Col>
       </Row>
     </Container>
+    </>
   );
 };
 

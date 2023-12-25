@@ -1,9 +1,11 @@
 // App.jsx
 
 import React, { useState, useEffect } from 'react';
-import { Form, Button, Container, Row, Col, Image, Alert } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 import axios from 'axios';
-import './App.css'; // Import the CSS file
+import html2canvas from 'html2canvas';
+import './App.css';
+import Navigation from '../Nav/Nav'
 
 const App = () => {
   const [imageUrl, setImageUrl] = useState('');
@@ -106,14 +108,35 @@ const applyTransformation = (imageElement) => {
     }
   };
 
+  const handleExport = () => {
+    if (loadedImage) {
+      const memeContainer = document.getElementById('meme-container');
+
+      html2canvas(memeContainer).then((canvas) => {
+        const image = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.href = image;
+        link.download = 'meme.png';
+        link.click();
+      });
+    }
+  };
+
   return (
+    <>
+    <Navigation />
     <Container className="app-container">
       <Row>
         <Col>
+          <h1 className="app-header">Covert Meme Operations</h1>
+          <p className="app-subheader">
+            Unleash the power of memes in the world of covert malign influence operations.
+            Craft memes that misdirect, deceive, and influence.
+          </p>
           <Form onSubmit={handleSubmit} className="app-form">
             <Form.Group controlId="imageUrl" className="app-form-group">
               <Form.Label>Image URL:</Form.Label>
-              <Form.Control type="text" value={imageUrl} onChange={handleImageChange} className="app-input" />
+              <Form.Control type="text" value={imageUrl} onChange={handleImageChange} className="app-input" placeholder="Enter meme image url here" />
             </Form.Group>
             <Button variant="primary" type="submit" className="app-button">
               Load Image
@@ -151,7 +174,7 @@ const applyTransformation = (imageElement) => {
         <Col>
           <div className="app-image-container">
             {loadedImage && (
-              <div className="app-image-wrapper">
+              <div id="meme-container" className="app-image-wrapper">
                 <img
                   src={loadedImage}
                   alt="Selected"
@@ -173,11 +196,18 @@ const applyTransformation = (imageElement) => {
                   {bottomText}
                 </div>
               </div>
+              
             )}
           </div>
+          {loadedImage &&
+            <Button variant="success" onClick={handleExport} className="app-button">
+                Export Meme
+            </Button>
+          }
         </Col>
       </Row>
     </Container>
+    </>
   );
 };
 

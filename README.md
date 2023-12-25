@@ -25,7 +25,7 @@ Operation MemeOps is a classified project designed to leverage the power of meme
 
 ## Demo 🕵️‍♂️
 
-Explore the live demo of Operation MemeOps [here](#) (Access granted to authorized personnel only).
+Explore the live demo of Operation MemeOps [here](https://memeops.pages.dev/) (Access granted to authorized personnel only).
 
 ## Getting Started 🚀
 
